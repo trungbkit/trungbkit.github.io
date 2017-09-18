@@ -44,6 +44,9 @@ body {
 	padding-left: 20px;
 	color: #B2EBF2;
 }
+.header .link li:last-child a {
+	border: none;
+}
 .header .search {
 	width: auto;
 	float: right;
