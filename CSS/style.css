@@ -21,7 +21,7 @@ body {
 	z-index: 5;
 }
 .header .title {
-	width: 28%;
+	width: 32%;
 	height: calc(100px - 6px);
 	line-height: calc(100px - 6px);
 	text-align: center;
@@ -31,7 +31,7 @@ body {
 }
 .header .link {
 	line-height: 100px;
-	width: 37%;
+	width: 45%;
 	float: left;
 }
 .header .link .items {
@@ -344,7 +344,27 @@ body {
 		width: 100%;
 	}
 }
-@media only screen and (max-width: 830px) {
-	
-	
+@media only screen and (max-width: 685px) {
+	.header {
+		position: relative;
+	}
+	.header .title {
+		width: 65%;
+		height: 70%;
+		
+		font-size: 30px;
+		float: none;
+	}
+	.header .link {
+		width: 65%;
+		align-content: center;
+		line-height: unset;
+		text-align: center;
+	}
+	.header .search {
+		height: unset;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
 }
