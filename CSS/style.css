@@ -1,3 +1,7 @@
+html * {
+	box-sizing: border-box;
+}
+
 body {
 	margin: auto;
 	width: 1100px;
@@ -14,6 +18,7 @@ body {
 	position: sticky;
 	top: 0px;
 	display: block;
+	z-index: 5;
 }
 .header .title {
 	width: 300px;
@@ -29,22 +34,19 @@ body {
 	width: 400px;
 	float: left;
 }
-.header .link ul {
+.header .link .item {
 	padding: 0px;
 	margin: 0px;
-}
-.header .link li {
 	display: inline-block;
-	float: left;
 }
-.header .link li a {
+.header .link .item a {
 	text-decoration: unset;
 	border-right: solid white 1px;
 	padding-right: 20px;
 	padding-left: 20px;
 	color: #B2EBF2;
 }
-.header .link li:last-child a {
+.header .link .item:last-child a {
 	border: none;
 }
 .header .search {
@@ -55,53 +57,61 @@ body {
 .header .search input {
 	width: 180px;
 	margin: auto;
+	color: black;
 }
 .sidebar {
 	width: 16%;
 	float: left;
 	position: sticky;
 	top: 100px;
+	z-index: 2;
 }
-.sidebar ul {
+.sidebar .category {
 	padding: 0px;
 	margin: 0px;
+	display: block;
 }
-.sidebar ul li {
+.sidebar .category .item {
 	display: block;
 	height: 30px;
 	padding: 0px 0px 0px 10px;
 	margin: 0px;
-	border-bottom: solid black 1px;
+	border-bottom: solid #E0F2F1 1px;
 	line-height: 30px;
-	background: #ce93d8;
+	background: #1DE9B6;
 }
-.sidebar ul li a {
+.sidebar .category .item a {
 	text-decoration: none;
 }
-.sidebar ul li:hover {
-	background: #d500f9;
+.sidebar .category .item:hover {
+	background: #00BFA5;
 }
-.sidebar ul li:hover a {
+.sidebar .category .item:hover a {
 	font-weight: 600;
 }
-.sidebar ul li:first-child {
+.sidebar .category .item:first-child {
 	font-size: 17px;
 	text-align: center;
 	background: #00ACC1;
 	border-radius: 10px 10px 0px 0px;
 }
-.sidebar ul li:last-child {
+.sidebar .category .item:last-child {
 	border-radius: 0px 0px 10px 10px;
 }
+.wrapper {
+	width: 100%;
+	position: relative;
+	height: 750px;
+}
 .news {
+	padding: 0px;
+	margin: 0px;
 	background: #8C9EFF;
-	width: 16%;
-	height: 850px;
-	float: right;
-	position: inherit;
-	/* left: 924px;
-	top: 100px; */
-
+	width: 19%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
 .news .title {
 	height: 25px;
@@ -110,32 +120,47 @@ body {
 	background: #283593;
 	border-radius: 10px;
 }
-.news ul {
+
+.products {
 	padding: 0px;
 	margin: 0px;
-	list-style-type: none;
-}
-.news ul li {
 	display: block;
 }
-.news ul li:hover {
+.news .products {
+	width: 100%;
+}
+.products .item {
+	display: block;
+	padding: 5px;
+}
+.products .item:hover {
 	background: #3F51B5;
 	border-radius: 18px;
 }
-.news ul li a img {
+.products .item a img {
 	width: 90%;
 	display: block;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
-.news ul p {
-	padding: 5px 0px 0px 0px;
+.products .item p.name {
+	padding: 10px 0px 0px 0px;
+	margin: 0px;
+	height: 30px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 600;
+}
+.products .item p.price {
+	padding: 0px 0px 0px 5px;
 	margin: 0px;
 	height: 25px;
 	text-align: center;
 	font-size: 15px;
 	line-height: 25px;
 }
-.news li button {
+.products .item button {
 	width: 50%;
 	height: 25px;
 	margin-left: 25%;
@@ -147,47 +172,44 @@ body {
 	background: #7986CB;
 	cursor: pointer;
 }
-.news li button:hover {
+.products .item button:hover {
 	background: #6200EA;
 	font-weight: 500;
 	color: white;
 }
-
 .content {
-	width: 68%;
+	padding: 0px;
+	margin: 0px;
+	width: 65%;
 	background: #009688;
-	height: 850px;
 	float: left;
-	position: inherit;
+	position: relative;
+	height: 750px;
 }
 .content .title {
-	height: 40px;
+	height: 60px;
 	text-align: center;
 	font-weight: 500;
-	line-height: 40px;
+	line-height: 60px;
 	font-size: 30px;
+	padding: 10px;
+	display: block;
 }
-.content .product {
-	min-width: 300px;
-}
-.content .product ul {
+
+.content .products {
+	margin-left: auto;
+	margin-right: auto;
 	padding: 0px 10px;
 }
-.content .product li {
-	display: block;
+.content .products .item {
 	float: left;
-	padding: 5px;
-	margin: 0px;
-	width: 30%;
+	width: 31%;
 }
-.content .product li:hover {
+.content .products .item:hover {
 	background: #00bcd4;
 	border-radius: 15px;
 }
-.content .product li a img {
-	width: 100%;
-}
-.content .product li p.name {
+.content .products .item p.name {
 	padding: 10px 0px 0px 0px;
 	margin: 0px;
 	height: 30px;
@@ -195,16 +217,10 @@ body {
 	font-size: 15px;
 	line-height: 20px;
 }
-.content .product li p {
-	padding: 0px;
-	margin: 0px;
-	height: 25px;
-	text-align: center;
-	font-size: 15px;
-	line-height: 15px;
+.content .products .item p {
 	color: black;
 }
-.content .product li button {
+.content .products .item button {
 	width: 50%;
 	height: 25px;
 	margin-left: 25%;
@@ -213,42 +229,42 @@ body {
 	border: solid white 1px;
 	border-radius: 3px;
 	table-layout: center;
-	background: #b2ebf2;
+	background: #4DB6AC;
 	cursor: pointer;
 }
-.content .product li button:hover {
+.content .products .item button:hover {
 	background: #4dd0e1;
 	font-weight: 500;
 }
 .content .pages {
-	height: 40px;
-}
-.content .pages ul {
-	float: right;
 	height: 100%;
 	padding: 0px;
-	margin: 15px 5px;
 	border: solid white 1px;
 	border-radius: 10px;
+	height: 40px;
+	display: block;
+	background-color: #26A69A;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
 }
-.content .pages ul li {
+.content .pages .item {
 	display: inline-block;
-	float: left;
 	min-width: 30px;
 	height: 100%;
-	padding: 0px 5px;
+	padding: 0px;
 	margin: 0px;
 	border-right: solid white 1px;
 	text-align: center;
 }
-.content .pages li:last-child {
+.content .pages .item:last-child {
 	border: none;
-	width: 40px;
+	width: 45px;
 }
-.content .pages li:first-child {
-	width: 40px;
+.content .pages .item:first-child {
+	width: 45px;
 }
-.content .pages li a {
+.content .pages .item a {
 	min-width: 20px;
 	height: 20px;
 	text-align: center;
@@ -258,12 +274,9 @@ body {
 	text-decoration: none;
 	color: white;
 }
-
-.content .pages li:hover a {
-	font-size: 18px;
-	font-weight: 500;
+.content .pages .item a:hover {
+	font-weight: 700;
 }
-
 .footer {
 	background: #004D40;
 	height: 85px;
