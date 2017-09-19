@@ -220,6 +220,9 @@ body {
 .content .products .item p {
 	color: black;
 }
+.content .products .item:hover p {
+	color: white;
+}
 .content .products .item button {
 	width: 50%;
 	height: 25px;
