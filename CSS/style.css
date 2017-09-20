@@ -118,14 +118,12 @@ body {
 
 .products {
 	padding: 0px;
-	margin: 0px;
-	display: block;
+	margin: 0px auto;
+	display: table;
 }
-.news .products {
-	width: 100%;
-}
+
 .products .item {
-	display: block;
+	display: table;
 	padding: 5px;
 	float: left;
 }
@@ -193,8 +191,6 @@ body {
 }
 
 .content .products {
-	margin-left: auto;
-	margin-right: auto;
 	padding: 0px 10px;
 }
 .content .products .item {
@@ -286,7 +282,7 @@ body {
 
 .footer {
 	background: #004D40;
-	height: 85px;
+	min-height: 85px;
 	clear: both;
 	border-radius: 7px;
 }
@@ -344,6 +340,18 @@ body {
 		width: 100%;
 	}
 }
+@media only screen and (max-width: 770px) {
+	.footer p {
+		font-size: 15px;
+	}
+	.footer .contact {
+		position: unset;
+		margin: 0 auto;
+		display: table;
+		float: none;
+	}
+}
+
 @media only screen and (max-width: 685px) {
 	.header {
 		position: relative;
@@ -366,5 +374,13 @@ body {
 		position: absolute;
 		right: 10px;
 		top: 10px;
+	}
+}
+@media only screen and (max-width: 460px) {
+	.header .link {
+		font-size: 0.75em;
+	}
+	.header .title {
+		font-size: 1.75em;
 	}
 }
