@@ -127,6 +127,7 @@ body {
 	padding: 5px;
 	float: left;
 }
+
 .products .item:hover {
 	background: #3F51B5;
 	border-radius: 18px;
@@ -194,7 +195,7 @@ body {
 	padding: 0px 10px;
 }
 .content .products .item {
-	width: 31%;
+	width: 32%;
 }
 .content .products .item:hover {
 	background: #00bcd4;
@@ -293,6 +294,16 @@ body {
 	padding: 0px;
 	margin: 0px;
 }
+.center {
+	display: table;
+	margin: 0px auto;
+}
+.footer .name {
+	float: left;
+}
+.footer .description {
+	display: inline;
+}
 .footer .contact {
 	display: inline-flex;
 	float: right;
@@ -325,6 +336,9 @@ body {
 	}
 	.news {
 		width: 84%;
+	}
+	.news .products .item {
+		width: 50%;
 	}
 }
 
@@ -377,10 +391,30 @@ body {
 	}
 }
 @media only screen and (max-width: 460px) {
+	.header .title {
+		width: 75%;
+	}
 	.header .link {
+		width: 75%;
 		font-size: 0.75em;
+	}
+	.header .search {
+		right: 5px;
+		top: 5px;
 	}
 	.header .title {
 		font-size: 1.75em;
+	}
+	.footer .description {
+		display: none;
+	}
+}
+@media only screen and (max-width: 320px) {
+	.header .search {
+		top: 0px;
+		right: 0px;
+	}
+	.header .link {
+		width: 85%;
 	}
 }
