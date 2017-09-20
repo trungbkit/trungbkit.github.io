@@ -180,6 +180,8 @@ body {
 	position: relative;
 	min-height: fit-content;
 	float: left;
+
+	
 }
 .content .title {
 	height: 60px;
@@ -192,10 +194,14 @@ body {
 }
 
 .content .products {
+	display: table;
+	margin: 0px auto;
 	padding: 0px 10px;
+	
 }
 .content .products .item {
-	width: 32%;
+	width: 31%;
+	float: left;
 }
 .content .products .item:hover {
 	background: #00bcd4;
