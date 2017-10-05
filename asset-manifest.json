@@ -1,7 +1,9 @@
 {
-  "main.css": "static/css/main.55f69407.css",
-  "main.css.map": "static/css/main.55f69407.css.map",
-  "main.js": "static/js/main.3cf5c535.js",
-  "main.js.map": "static/js/main.3cf5c535.js.map",
-  "static/media/background.png": "static/media/background.3cc5240e.png"
+  "main.css": "static/css/main.cbe87447.css",
+  "main.css.map": "static/css/main.cbe87447.css.map",
+  "main.js": "static/js/main.d0e55c01.js",
+  "main.js.map": "static/js/main.d0e55c01.js.map",
+  "static/media/background.png": "static/media/background.3cc5240e.png",
+  "static/media/fb-icon.png": "static/media/fb-icon.c9c6d414.png",
+  "static/media/icon.png": "static/media/icon.672d506f.png"
 }
