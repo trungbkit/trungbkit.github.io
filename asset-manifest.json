@@ -1,11 +1,12 @@
 {
-  "main.css": "static/css/main.55f69407.css",
-  "main.css.map": "static/css/main.55f69407.css.map",
-  "main.js": "static/js/main.159d9247.js",
-  "main.js.map": "static/js/main.159d9247.js.map",
-  "static/media/background.png": "static/media/background.65d62b89.png",
-  "static/media/banner.jpg": "static/media/banner.0393ffd4.jpg",
+  "main.css": "static/css/main.f45860aa.css",
+  "main.css.map": "static/css/main.f45860aa.css.map",
+  "main.js": "static/js/main.64e9a22c.js",
+  "main.js.map": "static/js/main.64e9a22c.js.map",
+  "static/media/background-compressed.jpg": "static/media/background-compressed.ca646e5d.jpg",
+  "static/media/banner.jpg": "static/media/banner.d9ff5fcd.jpg",
   "static/media/fb-icon.png": "static/media/fb-icon.c9c6d414.png",
   "static/media/icon.png": "static/media/icon.672d506f.png",
-  "static/media/logoquizlabfull.png": "static/media/logoquizlabfull.4cd468ba.png"
+  "static/media/logoquizlabfull.png": "static/media/logoquizlabfull.65410309.png",
+  "static/media/quiz.png": "static/media/quiz.0faa90b7.png"
 }
