@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RSA</title>
+</head>
+<body>
+  <script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+  <input type="number" name="p" id="p" placeholder="p">
+  <input type="number" name="q" id="q" placeholder="q">
+  <input type="number" name="e" id="e" placeholder="e">
+  <input type="number" name="message" id="message" placeholder="M">
+  <div><button onclick="calc()">OK</button></div>
+  <div>m = <span id="m"></span> </div>
+  <div>n = <span id="n"></span> </div>
+  <div>d = <span id="d"></span> </div>
+  <div>M' = <span id="cipher"></span> </div>
+  <div>M = <span id="newMessage"></span> </div>
+  
+  <script>
+    function calc() {
+      var p = Number.parseInt(document.getElementById("p").value);
+      var q = Number.parseInt(document.getElementById("q").value);
+      var e = Number.parseInt(document.getElementById("e").value);
+      var message = Number.parseInt(document.getElementById("message").value);
+
+      var m = p*q;
+      var n = (p-1)*(q-1);
+      var d = findD(e, n);
+      var cipher = bigInt(message).modPow(e, m);
+      var newMessage = bigInt(cipher).modPow(d, m);
+
+      document.getElementById("m").innerHTML = m;
+      document.getElementById("n").innerHTML = n;
+      document.getElementById("d").innerHTML = d;
+      document.getElementById("cipher").innerHTML = cipher;
+      document.getElementById("newMessage").innerHTML = newMessage;
+    }
+    // d * e = n*m+1 d = (n*m+1)/e
+    function findD(e, n) {
+      var i = 0;
+      var d = (n*i + 1)/e;
+      while (!Number.isInteger(d)) {
+        i++;
+        d = (n*i + 1)/e;
+      }
+      console.log("e", e);
+      console.log("n", n);
+      console.log("i", i);
+      console.log("d", d);
+      return d;
+    }
+  </script>
+</body>
+</html>
