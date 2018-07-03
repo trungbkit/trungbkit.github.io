@@ -44,10 +44,13 @@
 <script>
     let data = [];
     let output = [];
+    function printResult(result) {
+        document.getElementById('result').value = `[${result.map(arr => `[${arr.join(',')}]`).join(',\n')}]`;
+    }
     function convert() {
         const input = document.getElementById('input').value;
         data = JSON.parse(input).map(arr => arr.map(num => num.toFixed(3)));
-        output = data.map(arr => arr.splice(0, 3));
+        output = data.map(arr => arr.slice(0, 3));
         document.getElementById('output').value = output.map(arr => arr.join(' ')).join('\n');
     }
     function invert() {
@@ -63,7 +66,7 @@
             row[2] = arrs[i][2];
             result.push(row);
         }
-        document.getElementById('result').value = result.map(arr => arr.join(' ')).join('\n');
+        printResult(result);
     }
 </script>
 
