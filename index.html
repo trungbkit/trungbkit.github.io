@@ -33,15 +33,37 @@
         </div>
         <button onclick="convert()">Convert</button>
         <div class="box">
-            <textarea disabled id="output" placeholder="output" rows="12" cols="20"></textarea>
+            <textarea id="output" placeholder="output" rows="12" cols="20"></textarea>
+        </div>
+        <button onclick="invert()">Invert</button>
+        <div class="box">
+            <textarea id="result" placeholder="result" rows="12" cols="20"></textarea>
         </div>
     </div>
 </body>
 <script>
+    let data = [];
+    let output = [];
     function convert() {
         const input = document.getElementById('input').value;
-        const output = JSON.parse(input).map(arr => arr.splice(0, 3).map(num => num.toFixed(3)));
+        data = JSON.parse(input).map(arr => arr.map(num => num.toFixed(3)));
+        output = data.map(arr => arr.splice(0, 3));
         document.getElementById('output').value = output.map(arr => arr.join(' ')).join('\n');
+    }
+    function invert() {
+        const editedData = document.getElementById('output').value;
+        const arrs = editedData.split('\n').map(line => line.split(' '));
+        let result = [];
+
+        const dataLength = data.length;
+        for (let i = 0; i < dataLength; i++) {
+            const row = [...data[i]];
+            row[0] = arrs[i][0];
+            row[1] = arrs[i][1];
+            row[2] = arrs[i][2];
+            result.push(row);
+        }
+        document.getElementById('result').value = result.map(arr => arr.join(' ')).join('\n');
     }
 </script>
 
