@@ -8,7 +8,7 @@
     <title>Convert</title>
     <style>
         .container {
-            width: 700px;
+            width: 600px;
             border: 1px darkblue dashed;
             border-radius: 10px;
             margin: 10px auto;
@@ -29,19 +29,19 @@
 <body>
     <div class="container">
         <div class="box">
-            <textarea placeholder="input (Ex: [[1, 4, 3, 5], [6.7, 3.6, 10]])" id="input" rows="10" cols="20"></textarea>
+            <textarea placeholder="input (Ex: [[1, 4, 3, 5], [6.7, 3.6, 10]])" id="input" rows="12" cols="20"></textarea>
         </div>
         <button onclick="convert()">Convert</button>
         <div class="box">
-            <textarea disabled id="output" placeholder="output" rows="10" cols="20"></textarea>
+            <textarea disabled id="output" placeholder="output" rows="12" cols="20"></textarea>
         </div>
     </div>
 </body>
 <script>
     function convert() {
         const input = document.getElementById('input').value;
-        const output = JSON.parse(input).splice(0, 3);
-        document.getElementById('output').value = JSON.stringify(output);
+        const output = JSON.parse(input).map(arr => arr.splice(0, 3).map(num => num.toFixed(3)));
+        document.getElementById('output').value = output.map(arr => arr.join(' ')).join('\n');
     }
 </script>
 
