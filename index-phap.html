@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Convert</title>
+    <style>
+        .container {
+            width: 600px;
+            border: 1px darkblue dashed;
+            border-radius: 10px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        .box {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <textarea placeholder="input (Ex: [[1, 4, 3, 5], [6.7, 3.6, 10]])" id="input" rows="12" cols="20"></textarea>
+        </div>
+        <button onclick="convert()">Convert</button>
+        <div class="box">
+            <textarea id="output" placeholder="output" rows="12" cols="20"></textarea>
+        </div>
+        <button onclick="invert()">Invert</button>
+        <div class="box">
+            <textarea id="result" placeholder="result" rows="12" cols="20"></textarea>
+        </div>
+    </div>
+</body>
+<script>
+    let data = [];
+    let output = [];
+    function printResult(result) {
+        document.getElementById('result').value = `[${result.map(arr => `[${arr.join(',')}]`).join(',\n')}]`;
+    }
+    function convert() {
+        const input = document.getElementById('input').value;
+        data = JSON.parse(input).map(arr => arr.map(num => num.toFixed(3)));
+        output = data.map(arr => arr.slice(0, 3));
+        document.getElementById('output').value = output.map(arr => arr.join(' ')).join('\n');
+    }
+    function invert() {
+        const editedData = document.getElementById('output').value;
+        const arrs = editedData.split('\n').map(line => line.split(' '));
+        let result = [];
+
+        const dataLength = data.length;
+        for (let i = 0; i < dataLength; i++) {
+            const row = [...data[i]];
+            row[0] = arrs[i][0];
+            row[1] = arrs[i][1];
+            row[2] = arrs[i][2];
+            result.push(row);
+        }
+        printResult(result);
+    }
+</script>
+
+</html>
