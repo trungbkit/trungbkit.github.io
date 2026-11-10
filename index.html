@@ -1,1 +1,243 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="shortcut icon" href="/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="stylesheet" href="assets/css/bootstrap.min.css"><link rel="manifest" href="/manifest.json"><title>Crypto Tower Defense</title><link href="/static/css/main.342d0b5b.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script src="assets/js/jquery.min.js"></script><script src="assets/js/bootstrap.min.js"></script><script>!function(l){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],f=0,i=[];f<n.length;f++)t=n[f],p[t]&&i.push(p[t][0]),p[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(l[r]=o[r]);for(s&&s(e);i.length;)i.shift()();return c.push.apply(c,u||[]),a()}function a(){for(var e,r=0;r<c.length;r++){for(var t=c[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==p[u]&&(n=!1)}n&&(c.splice(r--,1),e=f(f.s=t[0]))}return e}var t={},p={2:0},c=[];function f(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return l[e].call(r.exports,r,r.exports,f),r.l=!0,r.exports}f.m=l,f.c=t,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(r,e){if(1&e&&(r=f(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)f.d(t,n,function(e){return r[e]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="/";var r=window.webpackJsonp=window.webpackJsonp||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var o=0;o<r.length;o++)e(r[o]);var s=n;a()}([])</script><script src="/static/js/1.1e3e7321.chunk.js"></script><script src="/static/js/main.796ca042.chunk.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nguyễn Minh Trung (trungbkit)</title>
+  <meta name="description" content="Nguyễn Minh Trung builds developer tools: Karen, a local-first Git client; Smart Commit, an AI commit-to-PR CLI; and VietNôm, a chữ Nôm converter.">
+  <meta property="og:title" content="Nguyễn Minh Trung (trungbkit)">
+  <meta property="og:description" content="Karen, Smart Commit, VietNôm, and Resty (coming soon).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trungbkit.github.io/">
+  <meta name="theme-color" content="#171a26" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f6fa" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&text=%E8%B6%8A%E5%8D%97%E5%AD%97%E5%96%83&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    // Apply saved theme/lang before paint to avoid a flash.
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#work" data-i18n="skip">Skip to projects</a>
+
+  <header class="topbar">
+    <a class="mark" href="https://github.com/trungbkit" aria-label="trungbkit on GitHub">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M6 3v18M6 15c0-5 12-4 12-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="6" cy="15" r="3" fill="var(--bg)" stroke="currentColor" stroke-width="2"/>
+        <circle cx="18" cy="6" r="3" fill="var(--bg)" stroke="var(--lane-resty)" stroke-width="2"/>
+      </svg>
+      <span>trungbkit</span>
+    </a>
+    <div class="controls">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="vi" aria-pressed="false">VI</button>
+      </div>
+      <button type="button" class="theme" aria-label="Toggle dark mode" data-i18n-label="theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="graph">
+
+    <!-- HEAD: intro -->
+    <section class="row row--first hero" aria-labelledby="hello">
+      <span class="node node--head" aria-hidden="true"></span>
+      <div class="body">
+        <p class="prompt"><span class="dim">~/trungbkit</span> <span class="ok">$</span> whoami</p>
+        <h1 id="hello" data-i18n="hello">Hi, I’m Trung.</h1>
+        <p class="lede" data-i18n="lede">I build tools that take the friction out of working with Git, and one that brings an old Vietnamese script back to the screen.</p>
+        <p class="sub" data-i18n="sub">I like local-first apps, interfaces that tell you what they’re about to do, and AI that stays out of the way until you ask for it.</p>
+        <div class="cta">
+          <a class="btn btn--solid" href="#work" data-i18n="ctaWork">See my projects</a>
+          <a class="btn" href="https://github.com/trungbkit" data-i18n="ctaGithub">Follow on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="visually-hidden" id="work" data-i18n="workTitle">Recent projects</h2>
+
+    <!-- Resty: unmerged branch -->
+    <article class="row row--branch project" style="--lane: var(--lane-resty)" aria-labelledby="p-resty">
+      <svg class="fork" viewBox="0 0 72 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M46 0 V30 C46 75 20 70 20 100" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <span class="node node--wip" aria-hidden="true"></span>
+      <div class="body">
+        <header class="title">
+          <h3 id="p-resty">Resty</h3>
+          <span class="ref ref--branch">feat/resty</span>
+        </header>
+        <p class="tagline" data-i18n="restyTag">Coming soon. It lives on its own branch for now and hasn’t been merged.</p>
+        <p class="note" data-i18n="restyNote">Watch the GitHub profile to catch it when it lands.</p>
+      </div>
+    </article>
+
+    <!-- Karen -->
+    <article class="row project" style="--lane: var(--lane-karen)" aria-labelledby="p-karen">
+      <span class="node" aria-hidden="true"></span>
+      <div class="body split">
+        <div class="text">
+          <header class="title">
+            <h3 id="p-karen">Karen</h3>
+            <span class="ref ref--head">HEAD → main</span>
+            <a class="ref ref--tag" id="karen-tag" href="https://github.com/trungbkit/git-karen/releases/latest">v1.0.7</a>
+          </header>
+          <p class="tagline" data-i18n="karenTag">A local-first desktop Git client. No account, no cloud, no licence server.</p>
+          <ul class="points">
+            <li data-i18n="karen1">A fast commit graph with its own lane layout, plus search by message, author, SHA, file path or content.</li>
+            <li data-i18n="karen2">Stage or discard by file, hunk or single line. Interactive rebase and a built-in three-way merge tool.</li>
+            <li data-i18n="karen3">An Undo button after every destructive action, and a reflog view to get back to any earlier state.</li>
+            <li data-i18n="karen4">Optional AI with your own key: commit messages, conflict resolution, pull request review and commit summaries.</li>
+          </ul>
+          <dl class="facts">
+            <div><dt data-i18n="builtWith">Built with</dt><dd>Tauri 2, Rust, React, TypeScript</dd></div>
+            <div><dt data-i18n="runsOn">Runs on</dt><dd>macOS, Windows, Linux</dd></div>
+          </dl>
+          <div class="links">
+            <a class="btn btn--solid" href="https://github.com/trungbkit/git-karen/releases/latest" data-i18n="download">Download Karen</a>
+            <a class="btn" href="https://github.com/trungbkit/git-karen" data-i18n="source">View source</a>
+          </div>
+        </div>
+        <figure class="visual karen-ui" aria-label="Illustration of Karen's commit graph">
+          <div class="chrome"><i></i><i></i><i></i><span>git-karen — main</span></div>
+          <svg viewBox="0 0 340 232" role="img" aria-hidden="true">
+            <g class="lanes" fill="none" stroke-width="2.5" stroke-linecap="round">
+              <path class="l1" d="M24 22 V214"/>
+              <path class="l2" d="M24 50 C24 64 48 64 48 78 V134 C48 148 24 148 24 162"/>
+              <path class="l3" d="M48 106 C48 120 72 120 72 134 V186 C72 200 24 200 24 214"/>
+            </g>
+            <g class="dots">
+              <circle class="wip" cx="24" cy="22" r="6"/>
+              <circle class="c1" cx="24" cy="50" r="6"/>
+              <circle class="c2" cx="48" cy="78" r="6"/>
+              <circle class="c1" cx="24" cy="106" r="6"/>
+              <circle class="c2" cx="48" cy="134" r="6"/>
+              <circle class="c3" cx="72" cy="162" r="6"/>
+              <circle class="c1" cx="24" cy="186" r="6"/>
+              <circle class="c1" cx="24" cy="214" r="6"/>
+            </g>
+            <g class="msgs">
+              <rect x="100" y="16" width="62" height="12" rx="3" class="pill-wip"/>
+              <rect x="100" y="44" width="52" height="12" rx="3" class="pill"/>
+              <rect x="158" y="44" width="130" height="12" rx="3"/>
+              <rect x="100" y="72" width="168" height="12" rx="3"/>
+              <rect x="100" y="100" width="118" height="12" rx="3"/>
+              <rect x="100" y="128" width="190" height="12" rx="3"/>
+              <rect x="100" y="156" width="40" height="12" rx="3" class="pill pill-3"/>
+              <rect x="146" y="156" width="104" height="12" rx="3"/>
+              <rect x="100" y="180" width="146" height="12" rx="3"/>
+              <rect x="100" y="208" width="96" height="12" rx="3"/>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Smart Commit -->
+    <article class="row project" style="--lane: var(--lane-smart)" aria-labelledby="p-smart">
+      <span class="node" aria-hidden="true"></span>
+      <div class="body split">
+        <div class="text">
+          <header class="title">
+            <h3 id="p-smart">Smart Commit</h3>
+            <span class="ref">git smartc</span>
+          </header>
+          <p class="tagline" data-i18n="smartTag">One command takes you from a dirty working tree to open pull requests.</p>
+          <ul class="points">
+            <li data-i18n="smart1">Writes a Conventional Commits message from your diff, then commits and pushes.</li>
+            <li data-i18n="smart2">Opens a pull request to each target branch, titled from the full diff against that branch.</li>
+            <li data-i18n="smart3">Works with Claude, OpenAI or Gemini, whichever key you already have.</li>
+            <li data-i18n="smart4">Each step runs only when there’s something to do. Flags only ever remove steps.</li>
+          </ul>
+          <dl class="facts">
+            <div><dt data-i18n="builtWith">Built with</dt><dd data-i18n="smartStack">Node.js with zero dependencies, plus the gh CLI</dd></div>
+          </dl>
+          <div class="links">
+            <a class="btn btn--solid" href="https://github.com/trungbkit/smart-commit#-installation" data-i18n="install">Install Smart Commit</a>
+            <a class="btn" href="https://github.com/trungbkit/smart-commit" data-i18n="source">View source</a>
+          </div>
+        </div>
+        <figure class="visual term" aria-label="Example Smart Commit run">
+<pre><code><span class="p">$</span> git smartc staging,main
+<span class="d">stage </span>  4 files
+<span class="d">commit</span>  <span class="y">feat(auth): rotate refresh tokens</span>
+<span class="d">push  </span>  origin/feat/auth <span class="g">✓</span>
+<span class="d">pr    </span>  → staging  <span class="g">#41 opened</span>
+<span class="d">pr    </span>  → main     <span class="g">#42 opened</span>
+<span class="p">$</span> <span class="caret"></span></code></pre>
+        </figure>
+      </div>
+    </article>
+
+    <!-- VietNôm -->
+    <article class="row project" style="--lane: var(--lane-nom)" aria-labelledby="p-nom">
+      <span class="node" aria-hidden="true"></span>
+      <div class="body split">
+        <div class="text">
+          <header class="title">
+            <h3 id="p-nom" lang="vi">VietNôm</h3>
+            <span class="ref ref--live" data-i18n="live">live</span>
+          </header>
+          <p class="tagline" data-i18n="nomTag">Write Vietnamese in chữ Nôm, the script our ancestors used for centuries.</p>
+          <ul class="points">
+            <li data-i18n="nom1">Type a sentence and get a Nôm character for each syllable. Swap any of them.</li>
+            <li data-i18n="nom2">A dictionary of 16,615 characters, 6,281 readings and 209 radicals, with every source cited.</li>
+            <li data-i18n="nom3">Breakdowns show which part of a character carries the meaning and which carries the sound.</li>
+            <li data-i18n="nom4">Games to learn with: a daily guessing puzzle, a character builder and a calligraphy card maker.</li>
+          </ul>
+          <dl class="facts">
+            <div><dt data-i18n="dataFrom">Data from</dt><dd>Unihan, Wiktionary, chunom.org</dd></div>
+          </dl>
+          <div class="links">
+            <a class="btn btn--solid" href="https://viet-nom.vercel.app/" data-i18n="openNom">Open VietNôm</a>
+          </div>
+        </div>
+        <figure class="visual nom" aria-label="“Việt Nam” and “chữ Nôm” written in Nôm characters">
+          <div class="scroll">
+            <div class="col"><span class="han">越南</span><span class="qn">Việt Nam</span></div>
+            <div class="col"><span class="han">字喃</span><span class="qn">chữ Nôm</span></div>
+          </div>
+          <span class="seal" aria-hidden="true">喃</span>
+        </figure>
+      </div>
+    </article>
+
+    <!-- About -->
+    <section class="row about" style="--lane: var(--ink)" aria-labelledby="about">
+      <span class="node node--small" aria-hidden="true"></span>
+      <div class="body">
+        <h2 id="about" data-i18n="aboutTitle">About me</h2>
+        <p data-i18n="about1">I write the tools I want to use: small scripts that remove a step from my day, and an app when a script isn’t enough. Lately that means Git ergonomics, AI that helps without taking over, and putting Vietnamese heritage on the web.</p>
+        <dl class="facts facts--wide">
+          <div><dt data-i18n="languages">Languages</dt><dd>TypeScript, Rust, JavaScript</dd></div>
+          <div><dt data-i18n="tools">Tools</dt><dd>React, Tauri, Node.js, Vite</dd></div>
+          <div><dt>AI</dt><dd data-i18n="aiApis">Claude, OpenAI and Gemini APIs</dd></div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="row row--last foot">
+    <span class="node node--root" aria-hidden="true"></span>
+    <div class="body">
+      <p class="root"><span class="sha">3c14580</span> <span data-i18n="root">Initial commit, 22 December 2016.</span></p>
+      <p class="dim" data-i18n="footNote">This page is plain HTML and CSS, hosted on GitHub Pages.</p>
+      <p><a href="https://github.com/trungbkit" data-i18n="footGithub">github.com/trungbkit</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
