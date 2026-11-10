@@ -25,9 +25,12 @@
     hello: 'Chào, tôi là Trung.',
     lede: 'Tôi làm công cụ giúp làm việc với Git bớt rườm rà, và một dự án đưa chữ Nôm trở lại màn hình.',
     sub: 'Tôi thích ứng dụng local-first, giao diện nói rõ nó sắp làm gì, và AI chỉ lên tiếng khi bạn cần.',
-    ctaWork: 'Xem các dự án',
     ctaGithub: 'Theo dõi trên GitHub',
-    workTitle: 'Dự án gần đây',
+    workTitle: 'Dự án',
+    ixResty: 'Sắp ra mắt',
+    ixKaren: 'Git client cho desktop, chạy hoàn toàn trên máy bạn',
+    ixSmart: 'Từ working tree dở dang tới pull request đã mở',
+    ixNom: 'Tiếng Việt, viết bằng chữ Nôm',
 
     restyTag: 'Sắp ra mắt. Hiện vẫn nằm trên branch riêng, chưa được merge.',
     restyNote: 'Theo dõi GitHub để biết khi nào nó lên sóng.',
@@ -49,6 +52,7 @@
     smart4: 'Bước nào không có việc thì tự bỏ qua. Flag chỉ dùng để bớt bước.',
     smartStack: 'Node.js không phụ thuộc thư viện nào, cùng gh CLI',
     install: 'Cài Smart Commit',
+    runAgain: 'Chạy lại',
 
     live: 'đang chạy',
     nomTag: 'Viết tiếng Việt bằng chữ Nôm, thứ chữ ông cha ta dùng suốt nhiều thế kỷ.',
@@ -104,11 +108,49 @@
   if (initial === 'vi') setLang('vi');
 
   /* ---------- Karen: show the latest release tag ---------- */
-  var tag = document.getElementById('karen-tag');
-  if (tag && window.fetch) {
+  var tags = document.querySelectorAll('.karen-tag');
+  if (tags.length && window.fetch) {
     fetch('https://api.github.com/repos/trungbkit/git-karen/releases/latest')
       .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { if (d && d.tag_name) tag.textContent = d.tag_name; })
+      .then(function (d) {
+        if (d && d.tag_name) tags.forEach(function (t) { t.textContent = d.tag_name; });
+      })
       .catch(function () {});
+  }
+
+  /* ---------- Lanes draw as each section arrives ---------- */
+  var rows = document.querySelectorAll('.row');
+  var hero = document.querySelector('.hero');
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Smart Commit: replay the run ---------- */
+  var term = document.querySelector('.term');
+  var lines = term ? term.querySelectorAll('.ln') : [];
+  var timers = [];
+  function play() {
+    timers.forEach(clearTimeout);
+    timers = [];
+    term.classList.add('playing');
+    lines.forEach(function (l, i) {
+      l.classList.remove('on');
+      timers.push(setTimeout(function () { l.classList.add('on'); }, 300 + i * 380));
+    });
+  }
+  var replay = document.querySelector('.replay');
+  if (replay && term) replay.addEventListener('click', play);
+
+  if (!('IntersectionObserver' in window)) {
+    rows.forEach(function (r) { r.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+        if (e.target === hero) setTimeout(function () { hero.classList.add('done'); }, 1600);
+        if (!calm && term && e.target.contains(term)) play();
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    rows.forEach(function (r) { io.observe(r); });
   }
 })();

@@ -9,16 +9,17 @@
   <meta property="og:description" content="Karen, Smart Commit, VietNôm, and Resty (coming soon).">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trungbkit.github.io/">
-  <meta name="theme-color" content="#171a26" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f4f6fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101233" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#eef0f8" media="(prefers-color-scheme: light)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&text=%E8%B6%8A%E5%8D%97%E5%AD%97%E5%96%83&display=swap">
   <link rel="stylesheet" href="assets/style.css">
   <script>
-    // Apply saved theme/lang before paint to avoid a flash.
+    // Apply saved theme before paint to avoid a flash.
+    document.documentElement.classList.add('js');
     try {
       var t = localStorage.getItem('theme');
       if (t) document.documentElement.dataset.theme = t;
@@ -50,25 +51,62 @@
 
   <main class="graph">
 
-    <!-- HEAD: intro -->
+    <!-- HEAD: intro, then the page as a git log -->
     <section class="row row--first hero" aria-labelledby="hello">
       <span class="node node--head" aria-hidden="true"></span>
       <div class="body">
-        <p class="prompt"><span class="dim">~/trungbkit</span> <span class="ok">$</span> whoami</p>
         <h1 id="hello" data-i18n="hello">Hi, I’m Trung.</h1>
-        <p class="lede" data-i18n="lede">I build tools that take the friction out of working with Git, and one that brings an old Vietnamese script back to the screen.</p>
-        <p class="sub" data-i18n="sub">I like local-first apps, interfaces that tell you what they’re about to do, and AI that stays out of the way until you ask for it.</p>
-        <div class="cta">
-          <a class="btn btn--solid" href="#work" data-i18n="ctaWork">See my projects</a>
-          <a class="btn" href="https://github.com/trungbkit" data-i18n="ctaGithub">Follow on GitHub</a>
+        <div class="intro">
+          <p class="lede" data-i18n="lede">I build tools that take the friction out of working with Git, and one that brings an old Vietnamese script back to the screen.</p>
+          <div>
+            <p class="sub" data-i18n="sub">I like local-first apps, interfaces that tell you what they’re about to do, and AI that stays out of the way until you ask for it.</p>
+            <div class="cta">
+              <a class="btn btn--solid" href="https://github.com/trungbkit" data-i18n="ctaGithub">Follow on GitHub</a>
+            </div>
+          </div>
         </div>
+
+        <nav class="index" id="work" aria-label="Projects" data-i18n-label="workTitle">
+          <p class="cmd" aria-hidden="true"><b>$</b> git log --graph --all</p>
+          <ol>
+            <li class="ix ix--branch" style="--lane: var(--lane-resty)">
+              <svg class="fork" viewBox="0 0 72 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M46 0 V30 C46 75 20 70 20 100" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <span class="node" aria-hidden="true"></span>
+              <a href="#resty">
+                <span class="ix-head"><span class="ix-name">Resty</span><span class="ref ref--branch">feat/resty</span></span>
+                <span class="ix-desc" data-i18n="ixResty">Coming soon</span>
+              </a>
+            </li>
+            <li class="ix" style="--lane: var(--lane-karen)">
+              <span class="node" aria-hidden="true"></span>
+              <a href="#karen">
+                <span class="ix-head"><span class="ix-name">Karen</span><span class="ref ref--head">HEAD → main</span><span class="ref ref--tag karen-tag">v1.0.7</span></span>
+                <span class="ix-desc" data-i18n="ixKaren">A local-first desktop Git client</span>
+              </a>
+            </li>
+            <li class="ix" style="--lane: var(--lane-smart)">
+              <span class="node" aria-hidden="true"></span>
+              <a href="#smart">
+                <span class="ix-head"><span class="ix-name">Smart Commit</span><span class="ref">git smartc</span></span>
+                <span class="ix-desc" data-i18n="ixSmart">From a dirty working tree to open pull requests</span>
+              </a>
+            </li>
+            <li class="ix" style="--lane: var(--lane-nom)">
+              <span class="node" aria-hidden="true"></span>
+              <a href="#nom">
+                <span class="ix-head"><span class="ix-name" lang="vi">VietNôm</span><span class="ref ref--live" data-i18n="live">live</span></span>
+                <span class="ix-desc" data-i18n="ixNom">Vietnamese, written in chữ Nôm</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
       </div>
     </section>
 
-    <h2 class="visually-hidden" id="work" data-i18n="workTitle">Recent projects</h2>
-
     <!-- Resty: unmerged branch -->
-    <article class="row row--branch project" style="--lane: var(--lane-resty)" aria-labelledby="p-resty">
+    <article class="row row--branch project" id="resty" style="--lane: var(--lane-resty)" aria-labelledby="p-resty">
       <svg class="fork" viewBox="0 0 72 100" preserveAspectRatio="none" aria-hidden="true">
         <path d="M46 0 V30 C46 75 20 70 20 100" vector-effect="non-scaling-stroke"/>
       </svg>
@@ -84,15 +122,15 @@
     </article>
 
     <!-- Karen -->
-    <article class="row project" style="--lane: var(--lane-karen)" aria-labelledby="p-karen">
+    <article class="row project" id="karen" style="--lane: var(--lane-karen)" aria-labelledby="p-karen">
       <span class="node" aria-hidden="true"></span>
       <div class="body split">
+        <header class="title">
+          <h3 id="p-karen">Karen</h3>
+          <span class="ref ref--head">HEAD → main</span>
+          <a class="ref ref--tag karen-tag" href="https://github.com/trungbkit/git-karen/releases/latest">v1.0.7</a>
+        </header>
         <div class="text">
-          <header class="title">
-            <h3 id="p-karen">Karen</h3>
-            <span class="ref ref--head">HEAD → main</span>
-            <a class="ref ref--tag" id="karen-tag" href="https://github.com/trungbkit/git-karen/releases/latest">v1.0.7</a>
-          </header>
           <p class="tagline" data-i18n="karenTag">A local-first desktop Git client. No account, no cloud, no licence server.</p>
           <ul class="points">
             <li data-i18n="karen1">A fast commit graph with its own lane layout, plus search by message, author, SHA, file path or content.</li>
@@ -111,11 +149,12 @@
         </div>
         <figure class="visual karen-ui" aria-label="Illustration of Karen's commit graph">
           <div class="chrome"><i></i><i></i><i></i><span>git-karen — main</span></div>
-          <svg viewBox="0 0 340 232" role="img" aria-hidden="true">
+          <svg viewBox="0 0 380 240" role="img" aria-hidden="true">
+            <rect class="sel" x="0" y="64" width="380" height="28" rx="4"/>
             <g class="lanes" fill="none" stroke-width="2.5" stroke-linecap="round">
-              <path class="l1" d="M24 22 V214"/>
-              <path class="l2" d="M24 50 C24 64 48 64 48 78 V134 C48 148 24 148 24 162"/>
-              <path class="l3" d="M48 106 C48 120 72 120 72 134 V186 C72 200 24 200 24 214"/>
+              <path class="l1" d="M24 22 V218"/>
+              <path class="l2" d="M24 50 C24 64 48 64 48 78 V148 C48 172 24 166 24 190"/>
+              <path class="l3" d="M48 134 C48 148 72 148 72 162 C72 195 24 190 24 218"/>
             </g>
             <g class="dots">
               <circle class="wip" cx="24" cy="22" r="6"/>
@@ -124,20 +163,22 @@
               <circle class="c1" cx="24" cy="106" r="6"/>
               <circle class="c2" cx="48" cy="134" r="6"/>
               <circle class="c3" cx="72" cy="162" r="6"/>
-              <circle class="c1" cx="24" cy="186" r="6"/>
-              <circle class="c1" cx="24" cy="214" r="6"/>
+              <circle class="c1" cx="24" cy="190" r="6"/>
+              <circle class="c1" cx="24" cy="218" r="6"/>
             </g>
             <g class="msgs">
-              <rect x="100" y="16" width="62" height="12" rx="3" class="pill-wip"/>
-              <rect x="100" y="44" width="52" height="12" rx="3" class="pill"/>
-              <rect x="158" y="44" width="130" height="12" rx="3"/>
-              <rect x="100" y="72" width="168" height="12" rx="3"/>
-              <rect x="100" y="100" width="118" height="12" rx="3"/>
-              <rect x="100" y="128" width="190" height="12" rx="3"/>
-              <rect x="100" y="156" width="40" height="12" rx="3" class="pill pill-3"/>
-              <rect x="146" y="156" width="104" height="12" rx="3"/>
-              <rect x="100" y="180" width="146" height="12" rx="3"/>
-              <rect x="100" y="208" width="96" height="12" rx="3"/>
+              <text class="wip-msg" x="96" y="25.5">Uncommitted changes (3 files)</text>
+              <rect class="pill" x="96" y="42" width="36" height="16" rx="4"/>
+              <text class="pill-t" x="102" y="53.5">main</text>
+              <text x="138" y="53.5">Merge branch 'feat/merge-tool'</text>
+              <text x="96" y="81.5">feat(merge): three-way merge editor</text>
+              <text x="96" y="109.5">fix(graph): keep lanes stable on fetch</text>
+              <text x="96" y="137.5">feat(merge): pick hunks from either side</text>
+              <rect class="pill pill-3" x="96" y="154" width="52" height="16" rx="4"/>
+              <text class="pill-t" x="102" y="165.5">feat/ai</text>
+              <text x="154" y="165.5">feat(ai): review pull requests</text>
+              <text x="96" y="193.5">feat(undo): undo after discard</text>
+              <text x="96" y="221.5">feat(search): find commits by content</text>
             </g>
           </svg>
         </figure>
@@ -145,14 +186,14 @@
     </article>
 
     <!-- Smart Commit -->
-    <article class="row project" style="--lane: var(--lane-smart)" aria-labelledby="p-smart">
+    <article class="row project" id="smart" style="--lane: var(--lane-smart)" aria-labelledby="p-smart">
       <span class="node" aria-hidden="true"></span>
       <div class="body split">
+        <header class="title">
+          <h3 id="p-smart">Smart Commit</h3>
+          <span class="ref">git smartc</span>
+        </header>
         <div class="text">
-          <header class="title">
-            <h3 id="p-smart">Smart Commit</h3>
-            <span class="ref">git smartc</span>
-          </header>
           <p class="tagline" data-i18n="smartTag">One command takes you from a dirty working tree to open pull requests.</p>
           <ul class="points">
             <li data-i18n="smart1">Writes a Conventional Commits message from your diff, then commits and pushes.</li>
@@ -169,26 +210,27 @@
           </div>
         </div>
         <figure class="visual term" aria-label="Example Smart Commit run">
-<pre><code><span class="p">$</span> git smartc staging,main
-<span class="d">stage </span>  4 files
-<span class="d">commit</span>  <span class="y">feat(auth): rotate refresh tokens</span>
-<span class="d">push  </span>  origin/feat/auth <span class="g">✓</span>
-<span class="d">pr    </span>  → staging  <span class="g">#41 opened</span>
-<span class="d">pr    </span>  → main     <span class="g">#42 opened</span>
-<span class="p">$</span> <span class="caret"></span></code></pre>
+          <div class="term-bar"><span>zsh</span><button type="button" class="replay" data-i18n="runAgain">Run again</button></div>
+<pre><code><span class="ln"><span class="p">$</span> git smartc staging,main</span>
+<span class="ln"><span class="d">stage </span>  4 files</span>
+<span class="ln"><span class="d">commit</span>  <span class="y">feat(auth): rotate refresh tokens</span></span>
+<span class="ln"><span class="d">push  </span>  origin/feat/auth <span class="g">✓</span></span>
+<span class="ln"><span class="d">pr    </span>  → staging  <span class="g">#41 opened</span></span>
+<span class="ln"><span class="d">pr    </span>  → main     <span class="g">#42 opened</span></span>
+<span class="ln"><span class="p">$</span> <span class="caret"></span></span></code></pre>
         </figure>
       </div>
     </article>
 
     <!-- VietNôm -->
-    <article class="row project" style="--lane: var(--lane-nom)" aria-labelledby="p-nom">
+    <article class="row project" id="nom" style="--lane: var(--lane-nom)" aria-labelledby="p-nom">
       <span class="node" aria-hidden="true"></span>
       <div class="body split">
+        <header class="title">
+          <h3 id="p-nom" lang="vi">VietNôm</h3>
+          <span class="ref ref--live" data-i18n="live">live</span>
+        </header>
         <div class="text">
-          <header class="title">
-            <h3 id="p-nom" lang="vi">VietNôm</h3>
-            <span class="ref ref--live" data-i18n="live">live</span>
-          </header>
           <p class="tagline" data-i18n="nomTag">Write Vietnamese in chữ Nôm, the script our ancestors used for centuries.</p>
           <ul class="points">
             <li data-i18n="nom1">Type a sentence and get a Nôm character for each syllable. Swap any of them.</li>
@@ -218,7 +260,7 @@
       <span class="node node--small" aria-hidden="true"></span>
       <div class="body">
         <h2 id="about" data-i18n="aboutTitle">About me</h2>
-        <p data-i18n="about1">I write the tools I want to use: small scripts that remove a step from my day, and an app when a script isn’t enough. Lately that means Git ergonomics, AI that helps without taking over, and putting Vietnamese heritage on the web.</p>
+        <p class="statement" data-i18n="about1">I write the tools I want to use: small scripts that remove a step from my day, and an app when a script isn’t enough. Lately that means Git ergonomics, AI that helps without taking over, and putting Vietnamese heritage on the web.</p>
         <dl class="facts facts--wide">
           <div><dt data-i18n="languages">Languages</dt><dd>TypeScript, Rust, JavaScript</dd></div>
           <div><dt data-i18n="tools">Tools</dt><dd>React, Tauri, Node.js, Vite</dd></div>
