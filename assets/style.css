@@ -11,6 +11,7 @@
   --lane-smart: #a56a00;
   --lane-nom: #cc262c;
   --lane-resty: #00826a;
+  --lane-tomo: #c2410c;
 
   --on-lane: #ffffff;
   --term-bg: #14163c;
@@ -47,6 +48,7 @@
     --lane-smart: #ffbe3d;
     --lane-nom: #ff6166;
     --lane-resty: #36dcb4;
+  --lane-tomo: #ff8a4c;
     --term-bg: #090a22;
     --on-lane: #101233;
     color-scheme: dark;
@@ -63,6 +65,7 @@
   --lane-smart: #ffbe3d;
   --lane-nom: #ff6166;
   --lane-resty: #36dcb4;
+  --lane-tomo: #ff8a4c;
   --term-bg: #090a22;
   --on-lane: #101233;
   color-scheme: dark;
@@ -446,6 +449,65 @@ p { margin: 0; }
   transform: rotate(-4deg);
 }
 
+.tomo {
+  --ripe: #e0442a;
+  --raw: #bdd38c;
+  --leaf: #3e8a3a;
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  padding: 22px 24px 24px;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--lane-tomo) 50%, transparent);
+}
+.tomo-modes {
+  display: inline-flex; gap: 2px; padding: 3px;
+  border: 1px solid var(--hair); border-radius: 999px;
+  font: 600 12px/1 var(--mono); color: var(--muted);
+}
+.tomo-modes span { padding: 7px 11px; border-radius: 999px; white-space: nowrap; }
+.tomo-modes .on { background: var(--lane-tomo); color: var(--on-lane); }
+.tomo .fruit { display: block; width: min(100%, 230px); height: auto; margin-top: 22px; }
+.tomo .board { fill: var(--hair); }
+.tomo .raw { fill: var(--raw); }
+.tomo .ripe-edge { stop-color: var(--ripe); stop-opacity: 0; }
+.tomo .ripe-full { stop-color: var(--ripe); }
+.tomo .ripe { fill: url(#tomo-ripe); transform-box: fill-box; transform-origin: 50% 100%; }
+.tomo .sheen { fill: #fff; opacity: .28; }
+.tomo .calyx { fill: var(--leaf); }
+.tomo .stem { fill: none; stroke: var(--leaf); stroke-width: 4; stroke-linecap: round; }
+.tomo-time {
+  margin-top: 10px;
+  font: 800 clamp(48px, 6vw, 64px)/1 var(--display);
+  font-stretch: 75%;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.tomo-frog {
+  align-self: stretch;
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 22px; padding-top: 16px;
+  border-top: 1px solid var(--hair);
+  font-size: 16px; font-weight: 500;
+}
+.frog-tag {
+  font: 600 12px/1 var(--mono);
+  padding: 5px 8px; border-radius: 6px;
+  border: 1.5px solid var(--leaf); color: var(--leaf);
+}
+.tomo-count {
+  align-self: stretch;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-top: 12px;
+  font-size: 14px; color: var(--muted);
+}
+.tomo-count .dots { display: inline-flex; gap: 6px; }
+.tomo-count i { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--rail); }
+.tomo-count i.done { background: var(--ripe); border-color: var(--ripe); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tomo { --leaf: #7cc96a; }
+}
+:root[data-theme="dark"] .tomo { --leaf: #7cc96a; }
+
 /* ---------- About & footer ---------- */
 .about { --lane: var(--muted); --node-y: calc(var(--pad-top) + 22px); }
 .about h2 { font-size: clamp(30px, 4vw, 44px); }
@@ -482,6 +544,8 @@ p { margin: 0; }
   .js .row:not(.in)::before { transform: scaleY(0); }
   .js .row:not(.in) .node { transform: scale(0); }
   .js .row:not(.in) .fork path { opacity: 0; }
+  .js .tomo .ripe { transition: transform 2.4s cubic-bezier(.3, .7, .2, 1) .5s; }
+  .js .row:not(.in) .tomo .ripe { transform: scaleY(0); }
 
   /* hero: the log prints itself once */
   .js .hero .ix a { transition: opacity .5s, background-color .15s, padding-left .2s; }
@@ -490,6 +554,7 @@ p { margin: 0; }
   .js .hero .ix:nth-child(2) a, .js .hero .ix:nth-child(2) .node { transition-delay: .5s; }
   .js .hero .ix:nth-child(3) a, .js .hero .ix:nth-child(3) .node { transition-delay: .65s; }
   .js .hero .ix:nth-child(4) a, .js .hero .ix:nth-child(4) .node { transition-delay: .8s; }
+  .js .hero .ix:nth-child(5) a, .js .hero .ix:nth-child(5) .node { transition-delay: .95s; }
   .js .hero.done .ix a, .js .hero.done .ix .node { transition-delay: 0s; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -521,5 +586,11 @@ p { margin: 0; }
   .facts--wide { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .term pre { font-size: 12px; padding: 18px 16px 20px; }
   .nom { min-height: 300px; padding-top: 32px; }
+  .tomo { padding: 18px 16px 20px; }
+  .tomo-modes { font-size: 11px; }
+  .tomo-modes span { padding: 6px 8px; }
   .foot { --pad-top: 24px; --node-y: 36px; }
+}
+@media (max-width: 400px) {
+  .tomo-modes span:last-child { display: none; }
 }

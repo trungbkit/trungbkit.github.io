@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nguyễn Minh Trung (trungbkit)</title>
-  <meta name="description" content="Nguyễn Minh Trung builds developer tools: Karen, a local-first Git client; Smart Commit, an AI commit-to-PR CLI; and VietNôm, a chữ Nôm converter.">
+  <meta name="description" content="Nguyễn Minh Trung builds developer tools: Karen, a local-first Git client; Smart Commit, an AI commit-to-PR CLI; Tomo, a Pomodoro timer that has you eat the frog first; and VietNôm, a chữ Nôm converter.">
   <meta property="og:title" content="Nguyễn Minh Trung (trungbkit)">
-  <meta property="og:description" content="Karen, Smart Commit, VietNôm, and Resty (coming soon).">
+  <meta property="og:description" content="Karen, Smart Commit, Tomo, VietNôm, and Resty (coming soon).">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trungbkit.github.io/">
   <meta name="theme-color" content="#101233" media="(prefers-color-scheme: dark)">
@@ -57,7 +57,7 @@
       <div class="body">
         <h1 id="hello" data-i18n="hello">Hi, I’m Trung.</h1>
         <div class="intro">
-          <p class="lede" data-i18n="lede">I build tools that take the friction out of working with Git, and one that brings an old Vietnamese script back to the screen.</p>
+          <p class="lede" data-i18n="lede">I build tools that take the friction out of working with Git, a timer that gets the hardest task done first, and a site that brings an old Vietnamese script back to the screen.</p>
           <div>
             <p class="sub" data-i18n="sub">I like local-first apps, interfaces that tell you what they’re about to do, and AI that stays out of the way until you ask for it.</p>
             <div class="cta">
@@ -91,6 +91,13 @@
               <a href="#smart">
                 <span class="ix-head"><span class="ix-name">Smart Commit</span><span class="ref">git smartc</span></span>
                 <span class="ix-desc" data-i18n="ixSmart">From a dirty working tree to open pull requests</span>
+              </a>
+            </li>
+            <li class="ix" style="--lane: var(--lane-tomo)">
+              <span class="node" aria-hidden="true"></span>
+              <a href="#tomo">
+                <span class="ix-head"><span class="ix-name">Tomo</span><span class="ref ref--live" data-i18n="live">live</span></span>
+                <span class="ix-desc" data-i18n="ixTomo">A Pomodoro timer that has you eat the frog first</span>
               </a>
             </li>
             <li class="ix" style="--lane: var(--lane-nom)">
@@ -218,6 +225,68 @@
 <span class="ln"><span class="d">pr    </span>  → staging  <span class="g">#41 opened</span></span>
 <span class="ln"><span class="d">pr    </span>  → main     <span class="g">#42 opened</span></span>
 <span class="ln"><span class="p">$</span> <span class="caret"></span></span></code></pre>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Tomo -->
+    <article class="row project" id="tomo" style="--lane: var(--lane-tomo)" aria-labelledby="p-tomo">
+      <span class="node" aria-hidden="true"></span>
+      <div class="body split">
+        <header class="title">
+          <h3 id="p-tomo">Tomo</h3>
+          <span class="ref ref--live" data-i18n="live">live</span>
+        </header>
+        <div class="text">
+          <p class="tagline" data-i18n="tomoTag">A Pomodoro timer that has you eat the frog first: the task you dread most, 25 minutes at a time.</p>
+          <ul class="points">
+            <li data-i18n="tomo1">Pick one frog each day and do it before anything else. The rest of the list is sorted from easy to dreaded.</li>
+            <li data-i18n="tomo2">A 3D tomato ripens from the bottom up as the session runs, and each finished session adds one to today’s tray.</li>
+            <li data-i18n="tomo3">Log a distraction with one key and get straight back to work. Every other action has a shortcut too.</li>
+            <li data-i18n="tomo4">A daily goal, a streak, and charts of your focus by hour and over the past seven days.</li>
+          </ul>
+          <dl class="facts">
+            <div><dt data-i18n="builtWith">Built with</dt><dd data-i18n="tomoStack">Plain JavaScript and WebGL2, no framework</dd></div>
+            <div><dt data-i18n="tomoDataDt">Your data</dt><dd data-i18n="tomoData">Stays on your device, in IndexedDB</dd></div>
+          </dl>
+          <div class="links">
+            <a class="btn btn--solid" href="https://tomo-pomodoro.vercel.app/" data-i18n="openTomo">Open Tomo</a>
+          </div>
+        </div>
+        <figure class="visual tomo" aria-label="Illustration of Tomo’s timer: a tomato that ripens as the session runs" data-i18n-label="tomoFig">
+          <div class="tomo-modes" aria-hidden="true">
+            <span class="on" data-i18n="tomoFocus">Focus</span>
+            <span data-i18n="tomoShort">Short break</span>
+            <span data-i18n="tomoLong">Long break</span>
+          </div>
+          <svg class="fruit" viewBox="0 0 200 184" aria-hidden="true">
+            <defs>
+              <clipPath id="tomo-clip">
+                <path d="M100 52 C116 40 166 42 178 96 C188 146 146 176 100 176 C54 176 12 146 22 96 C34 42 84 40 100 52 Z"/>
+              </clipPath>
+              <linearGradient id="tomo-ripe" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" class="ripe-edge"/>
+                <stop offset=".18" class="ripe-full"/>
+              </linearGradient>
+            </defs>
+            <ellipse class="board" cx="100" cy="176" rx="88" ry="7"/>
+            <path class="raw" d="M100 52 C116 40 166 42 178 96 C188 146 146 176 100 176 C54 176 12 146 22 96 C34 42 84 40 100 52 Z"/>
+            <g clip-path="url(#tomo-clip)">
+              <rect class="ripe" x="0" y="80" width="200" height="104"/>
+            </g>
+            <ellipse class="sheen" cx="60" cy="88" rx="13" ry="22" transform="rotate(28 60 88)"/>
+            <path class="calyx" d="M100 54 L80 44 L95 46 L88 30 L101 43 L114 30 L106 47 L122 44 Z"/>
+            <path class="stem" d="M101 44 C101 34 104 26 110 20"/>
+          </svg>
+          <p class="tomo-time" aria-hidden="true">18:42</p>
+          <div class="tomo-frog" aria-hidden="true">
+            <span class="frog-tag" data-i18n="tomoFrogTag">frog</span>
+            <span data-i18n="tomoFrogTask">Write the quarterly report</span>
+          </div>
+          <div class="tomo-count" aria-hidden="true">
+            <span class="dots"><i class="done"></i><i class="done"></i><i class="done"></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span data-i18n="tomoCount">3 of 8 today</span>
+          </div>
         </figure>
       </div>
     </article>
